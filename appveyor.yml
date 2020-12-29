@@ -18,4 +18,8 @@ before_build:
   - cd c:\projects\g2o
   - mkdir build
   - cd build
-  - cmake -G "Visual Studio 16 2019" -A x64 -D EIGEN3_INCLUDE_DIR=C:\projects\eigen-3.3.9 ..
+  - cmake -G "Visual Studio 16 2019" -A x64 -DBUILD_UNITTESTS=ON -D EIGEN3_INCLUDE_DIR=C:\projects\eigen-3.3.9 ..
+
+test_script:
+  - cd c:\projects\g2o\build
+  - ctest --extra-verbose
